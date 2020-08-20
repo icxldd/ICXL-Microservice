@@ -1,0 +1,11 @@
+D:\ICXL\icxl_core\icxl_api\Test\bin\Debug\netcoreapp2.2\Test.deps.json
+D:\ICXL\icxl_core\icxl_api\Test\bin\Debug\netcoreapp2.2\Test.runtimeconfig.json
+D:\ICXL\icxl_core\icxl_api\Test\bin\Debug\netcoreapp2.2\Test.runtimeconfig.dev.json
+D:\ICXL\icxl_core\icxl_api\Test\bin\Debug\netcoreapp2.2\Test.dll
+D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.csproj.CoreCompileInputs.cache
+D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.AssemblyInfoInputs.cache
+D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.AssemblyInfo.cs
+D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.csprojAssemblyReference.cache
+D:\ICXL\icxl_core\icxl_api\Test\bin\Debug\netcoreapp2.2\Test.pdb
+D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.dll
+D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.pdb

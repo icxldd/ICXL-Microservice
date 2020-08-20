@@ -1,0 +1,9 @@
+D:\ICXL\icxl_core\icxl_api\bin\Debug\icxl_api.dll
+D:\ICXL\icxl_core\icxl_api\bin\Debug\icxl_APIGateway.dll
+D:\ICXL\icxl_core\icxl_api\bin\Debug\icxl_api_oms.dll
+D:\ICXL\icxl_core\icxl_api\bin\Debug\icxl_api.pdb
+D:\ICXL\icxl_core\icxl_api\bin\Debug\icxl_api_oms.pdb
+D:\ICXL\icxl_core\icxl_api\bin\Debug\icxl_APIGateway.pdb
+D:\ICXL\icxl_core\icxl_api\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+D:\ICXL\icxl_core\icxl_api\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+D:\ICXL\icxl_core\icxl_api\obj\Debug\docker-compose.dcproj.CopyComplete

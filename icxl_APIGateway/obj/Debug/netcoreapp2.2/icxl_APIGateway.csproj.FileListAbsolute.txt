@@ -1,0 +1,14 @@
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.csproj.CoreCompileInputs.cache
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.AssemblyInfoInputs.cache
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.AssemblyInfo.cs
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\icxl_APIGateway.deps.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\icxl_APIGateway.runtimeconfig.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\icxl_APIGateway.runtimeconfig.dev.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\icxl_APIGateway.dll
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\icxl_APIGateway.pdb
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.csprojAssemblyReference.cache
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.RazorAssemblyInfo.cache
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.RazorAssemblyInfo.cs
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.RazorTargetAssemblyInfo.cache
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.dll
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.pdb

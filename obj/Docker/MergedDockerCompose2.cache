@@ -1,0 +1,31 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  icxl_api:
+    build:
+      context: D:\ICXL\icxl_core\icxl_api
+      dockerfile: icxl_api\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: icxlapi
+    ports:
+    - published: 56249
+      target: 80
+    - published: 44327
+      target: 443
+    volumes:
+    - /c/Users/Leon/AppData/Roaming/ASP.NET/Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
+    - /c/Users/Leon/AppData/Roaming/Microsoft/UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+  icxl_api_oms:
+    build:
+      context: D:\ICXL\icxl_core\icxl_api
+      dockerfile: icxl_api_oms\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: icxlapioms
+    ports:
+    - target: 80
+version: '3.4'

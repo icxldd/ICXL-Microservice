@@ -1,0 +1,56 @@
+version: '3.4'
+
+services:
+
+# 1.3 APIGateway
+ # app-infrastructure-apigateway:
+ #   container_name: app-infrastructure-apigateway-${ContainerSuffix}
+  #  image: ${DockerHub_Registry}/icxl-apigateway:${DockerImage_Tag}
+  #  ports:
+  #    - "${ApplicationStartPortPrefix}03:80"
+  #  volumes:
+  #    - "/var/${VolumeBaseDirectory}/app-infrastructure-apigateway/logs:/app/logs"
+ #   environment:
+ #     - ASPNETCORE_ENVIRONMENT=Production
+ #   networks:
+  #    - morejeenet
+  #  restart: always
+# 2. app microservices
+# 2.1 basic ms
+  app-microservice-basic-api:
+    container_name: app-microservice-basic-api-${ContainerSuffix}
+    image: ${DockerHub_Registry}/icxl-api:${DockerImage_Tag}
+    environment:
+      # Consul
+      - ConsulConfig:Server:IP=app-infrastructure-consul
+      - ConsulConfig:Server:Port=8500
+      - ConsulConfig:Client:IP=app-microservice-basic-api
+      - ConsulConfig:Client:Port=80
+    ports:
+      - "${ApplicationStartPortPrefix}11:80"
+    networks:
+      - morejeenet
+   # depends_on:
+  #    - app-infrastructure-apigateway
+    restart: always
+# 2.2 oms ms
+ # app-microservice-oms-api:
+  #  container_name: app-microservice-oms-api-${ContainerSuffix}
+ #   image: ${DockerHub_Registry}/icxl-api-oms:${DockerImage_Tag}
+ #   environment:
+      # Consul
+  #    - ConsulConfig:Server:IP=app-infrastructure-consul
+  #    - ConsulConfig:Server:Port=8500
+ #     - ConsulConfig:Client:IP=app-microservice-oms-api
+ #     - ConsulConfig:Client:Port=80
+#    ports:
+#      - "${ApplicationStartPortPrefix}12:80"
+#    networks:
+#      - morejeenet
+#    depends_on:
+ #     - app-infrastructure-apigateway
+ #   restart: always
+
+
+networks:
+  morejeenet:

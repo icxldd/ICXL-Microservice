@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+
+
+  icxl-ids:
+   image: ${DockerHub_Registry}/icxl-ids:${DockerImage_Tag}
+   build:
+     context: .
+     dockerfile: icxl_idsServer/Dockerfile

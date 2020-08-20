@@ -1,0 +1,22 @@
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see http://aka.ms/containercompat 
+
+FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM microsoft/dotnet:2.2-sdk AS build
+WORKDIR /src
+COPY icxl_APIGateway/icxl_APIGateway.csproj icxl_APIGateway/
+#RUN dotnet restore icxl_APIGateway/icxl_APIGateway.csproj
+COPY . .
+WORKDIR /src/icxl_APIGateway
+RUN dotnet build icxl_APIGateway.csproj -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish icxl_APIGateway.csproj -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "icxl_APIGateway.dll"]

@@ -1,0 +1,10 @@
+D:\ICXL\icxl_core\icxl_api\efstudy\bin\Debug\netcoreapp2.2\efstudy.deps.json
+D:\ICXL\icxl_core\icxl_api\efstudy\bin\Debug\netcoreapp2.2\efstudy.runtimeconfig.json
+D:\ICXL\icxl_core\icxl_api\efstudy\bin\Debug\netcoreapp2.2\efstudy.runtimeconfig.dev.json
+D:\ICXL\icxl_core\icxl_api\efstudy\bin\Debug\netcoreapp2.2\efstudy.dll
+D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.csproj.CoreCompileInputs.cache
+D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.AssemblyInfoInputs.cache
+D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.AssemblyInfo.cs
+D:\ICXL\icxl_core\icxl_api\efstudy\bin\Debug\netcoreapp2.2\efstudy.pdb
+D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.dll
+D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.pdb
