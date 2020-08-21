@@ -2,13 +2,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
-using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
 
 namespace icxl_abp
 {
     [DependsOn(typeof(AbpAspNetCoreMvcModule))]
-    [DependsOn(typeof(AbpAutofacModule))]
     public class AppModule : AbpModule
     {
         public override void OnApplicationInitialization(ApplicationInitializationContext context)

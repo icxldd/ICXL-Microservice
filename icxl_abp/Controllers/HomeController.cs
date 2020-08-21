@@ -9,7 +9,7 @@ using Volo.Abp.AspNetCore.Mvc;
 
 namespace icxl_abp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class HomeController : AbpController

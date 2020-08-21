@@ -8,29 +8,42 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.InProcess;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-
+using NLog.Web;
 namespace icxl_abp
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            /*
-                https://github.com/aspnet/AspNetCore/issues/4206#issuecomment-445612167
-                CurrentDirectoryHelpers 文件位于: \framework\src\Volo.Abp.AspNetCore.Mvc\Microsoft\AspNetCore\InProcess\CurrentDirectoryHelpers.cs
-                当升级到ASP.NET Core 3.0的时候将会删除这个类.
-            */
-            CurrentDirectoryHelpers.SetCurrentDirectory();
-
-            BuildWebHostInternal(args).Run();
+            BuildWebHost(args).Run();
         }
-        public static IWebHost BuildWebHostInternal(string[] args) =>
-           new WebHostBuilder()
-               .UseKestrel()
-               .UseContentRoot(Directory.GetCurrentDirectory())
-               .UseIIS()
-               .UseIISIntegration()
-               .UseStartup<Startup>()
-               .Build();
+
+
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddCommandLine(args)
+                .Build();
+
+            return WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(config)
+                .UseStartup<Startup>()
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.SetMinimumLevel(LogLevel.Trace);
+                })
+#if DEBUG
+                .UseUrls("http://*:1977")
+#endif
+                .UseNLog()
+                .UseKestrel(options =>
+                {
+                    //最大文件上传3G
+                    options.Limits.MaxRequestBodySize = 3 * 1024 * 1024 * 1024L;
+                })
+                .Build();
+        }
     }
 }

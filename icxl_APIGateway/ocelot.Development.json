@@ -19,6 +19,16 @@
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/abp/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "ServiceName": "icxlabpservice",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
     }
   ],
   "GlobalConfiguration": {
