@@ -10,8 +10,8 @@ namespace Test
         {
 
             var client = new HttpClient();
-            
-            var disco = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest { Address = "http://192.168.99.100:5000", Policy = new DiscoveryPolicy { RequireHttps = false } });
+
+            var disco = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest { Address = "http://192.168.0.105:5000", Policy = new DiscoveryPolicy { RequireHttps = false } });
             if (disco.IsError)
             {
                 Console.WriteLine(disco.Error);
@@ -23,7 +23,6 @@ namespace Test
                 ClientId = "ro.client",
                 ClientSecret = "secret",
                 Scope = "api1",
-
                 UserName = "icxl",
                 Password = "123456",
             });
@@ -38,7 +37,7 @@ namespace Test
 
             client.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = await client.GetAsync("http://192.168.99.100:9503/oms/api/values");
+            var response = await client.GetAsync("http://192.168.0.105:9703/oms/api/values");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);

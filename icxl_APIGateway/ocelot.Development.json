@@ -25,7 +25,7 @@
     "dmzconsulservice-ehome": null,
     "ServiceDiscoveryProvider": {
       "Host": "192.168.99.100",
-      "Port": 9502,
+      "Port": 8500,
       "Type": "Consul"
     }
   }

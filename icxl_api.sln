@@ -33,9 +33,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "icxl_idsServer", "icxl_idsS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{3DC6DF39-AAF7-42A8-ABFD-62DE2808FE31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "efstudy", "efstudy\efstudy.csproj", "{43D7EB4B-A90D-4CBF-B4F4-FE79572FC5D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "efstudy", "efstudy\efstudy.csproj", "{43D7EB4B-A90D-4CBF-B4F4-FE79572FC5D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test-icxl", "Test-icxl", "{0D22B488-A390-48FC-B42C-2CBB5F40F912}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other-deploy", "other-deploy", "{DDC579BF-C986-4A15-9D39-D144435C12A4}"
+	ProjectSection(SolutionItems) = preProject
+		run-deploy\other-deploy\.env = run-deploy\other-deploy\.env
+		run-deploy\other-deploy\docker-compose.yml = run-deploy\other-deploy\docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +83,7 @@ Global
 		{A6176056-30B1-4663-AA48-051921F44F6A} = {AEAE1B81-3E86-4413-9B34-5DB9AACF77BE}
 		{3DC6DF39-AAF7-42A8-ABFD-62DE2808FE31} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
 		{43D7EB4B-A90D-4CBF-B4F4-FE79572FC5D2} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
+		{DDC579BF-C986-4A15-9D39-D144435C12A4} = {AEAE1B81-3E86-4413-9B34-5DB9AACF77BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8D86CB2-D606-455C-80E7-45924F028317}
