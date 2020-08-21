@@ -39,12 +39,14 @@ namespace icxl_idsServer
             });
             services.Configure<AppConfig>(Configuration);
 
-
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader()
+           .AllowCredentials()));
 
             services.AddIdentityServer().AddDeveloperSigningCredential().AddInMemoryIdentityResources(Config.GetIdentityResourceResources())
           .AddInMemoryApiResources(Config.GetApiResources())
           .AddInMemoryClients(Config.GetClients()).AddResourceOwnerValidator<ResourceOwnerPasswordValidator>().AddProfileService<ProfileService>();
-            //.AddTestUsers(Config.GetUsers());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,10 +54,11 @@ namespace icxl_idsServer
         {
             var settingsOptions = serviceProvider.GetService<IOptions<AppConfig>>();
             var appConfig = settingsOptions.Value;
-            //loggerFactory.AddConsole(LogLevel.Debug);
+
+            app.UseCors("AllowAll");
+
             app.UseDeveloperExceptionPage();
             app.UseIdentityServer();
-
             app.RegisterConsul(lifetime, appConfig);
 
 
