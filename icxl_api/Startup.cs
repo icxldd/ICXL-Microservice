@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using icxl_api.AppContext;
 using icxl_api.Entities;
+using icxl_api.IRepository;
+using icxl_api.Repository;
 using icxl_api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -72,6 +74,11 @@ namespace icxl_api
             {
                 c.SwaggerDoc("v1", new Info { Title = "MyTestService", Version = "v1" });
             });
+
+
+
+            services.AddSingleton<IAccountRepository, AccountRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

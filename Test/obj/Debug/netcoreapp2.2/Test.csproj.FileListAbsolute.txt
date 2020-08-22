@@ -8,5 +8,4 @@ D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.AssemblyInfo.cs
 D:\ICXL\icxl_core\icxl_api\Test\bin\Debug\netcoreapp2.2\Test.pdb
 D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.dll
 D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.pdb
-D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.genruntimeconfig.cache
 D:\ICXL\icxl_core\icxl_api\Test\obj\Debug\netcoreapp2.2\Test.csprojAssemblyReference.cache

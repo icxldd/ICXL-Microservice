@@ -11,8 +11,4 @@ D:\ICXL\icxl_core\icxl_api\icxl_api\obj\Debug\netcoreapp2.2\icxl_api.RazorAssemb
 D:\ICXL\icxl_core\icxl_api\icxl_api\obj\Debug\netcoreapp2.2\icxl_api.RazorTargetAssemblyInfo.cache
 D:\ICXL\icxl_core\icxl_api\icxl_api\obj\Debug\netcoreapp2.2\icxl_api.dll
 D:\ICXL\icxl_core\icxl_api\icxl_api\obj\Debug\netcoreapp2.2\icxl_api.pdb
-D:\ICXL\icxl_core\icxl_api\icxl_api\bin\Debug\netcoreapp2.2\appsettings.Development.json
-D:\ICXL\icxl_core\icxl_api\icxl_api\bin\Debug\netcoreapp2.2\appsettings.json
-D:\ICXL\icxl_core\icxl_api\icxl_api\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
-D:\ICXL\icxl_core\icxl_api\icxl_api\obj\Debug\netcoreapp2.2\icxl_api.genruntimeconfig.cache
 D:\ICXL\icxl_core\icxl_api\icxl_api\obj\Debug\netcoreapp2.2\icxl_api.csprojAssemblyReference.cache
