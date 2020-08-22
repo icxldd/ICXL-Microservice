@@ -41,9 +41,16 @@ namespace icxl_api
                 //ignore Entity framework Navigation property back reference problem. Blog >> Posts. Post >> Blog. Blog.post.blog will been ignored.
                 opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             }).AddJsonFormatters();
+
+
+
             services.AddEntityFrameworkNpgsql();
             var connStr = Configuration["ConnectionString"];
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connStr));
+
+
+
+
 
             services.Configure<AppConfig>(Configuration);
 
@@ -52,7 +59,6 @@ namespace icxl_api
             .AllowAnyHeader()
             .AllowCredentials()));
             Console.WriteLine("http://" + Configuration["idsUrl:IP"] + ":" + Configuration["idsUrl:Port"]);
-            //"http://192.168.0.104:5000";
             services.AddAuthentication("Bearer")
             .AddJwtBearer("Bearer", options =>
             {
@@ -60,8 +66,6 @@ namespace icxl_api
                 options.RequireHttpsMetadata = false;
                 options.Audience = "api1";
             });
-
-
 
 
             services.AddSwaggerGen(c =>
@@ -74,7 +78,7 @@ namespace icxl_api
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider, IApplicationLifetime lifetime)
         {
 
-            var dbContext = serviceProvider.GetService<AppDbContext>();
+            
             app.UseAuthentication();
 
             var settingsOptions = serviceProvider.GetService<IOptions<AppConfig>>();
@@ -112,6 +116,7 @@ namespace icxl_api
 
             #region Database Init
             {
+                var dbContext = serviceProvider.GetService<AppDbContext>();
                 dbContext.Database.Migrate();
                 if (dbContext.Account.Count() == 0)
                 {

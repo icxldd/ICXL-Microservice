@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using icxl_abp.DBContext;
+using icxl_abp.Domain;
 using icxl_abp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -36,6 +39,11 @@ namespace icxl_abp
                 //ignore Entity framework Navigation property back reference problem. Blog >> Posts. Post >> Blog. Blog.post.blog will been ignored.
                 opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             }).AddJsonFormatters();
+
+
+            services.AddEntityFrameworkNpgsql();
+            var connStr = Configuration["ConnectionString"];
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connStr));
 
 
 
@@ -70,7 +78,26 @@ namespace icxl_abp
             app.UseCors("AllowAll");
             app.RegisterConsul(lifetime, appConfig);
 
+
+
+            #region Database Init
+            {
+                var dbContext = serviceProvider.GetService<AppDbContext>();
+                dbContext.Database.Migrate();
+                if (dbContext.Book.Count() == 0)
+                {
+                    Book a = new Book(Guid.NewGuid(),"1231",BookType.Adventure,DateTime.Now,123);
+                    Book aa = new Book(Guid.NewGuid(), "4123123", BookType.Adventure, DateTime.Now, 123);
+                    dbContext.Book.Add(a);
+                    dbContext.Book.Add(aa);
+                    dbContext.SaveChanges();
+                }
+            }
+            #endregion
+
             app.InitializeApplication();
+
+
         }
     }
 }

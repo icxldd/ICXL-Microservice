@@ -16,6 +16,7 @@ namespace icxl_abp.Controllers
     {
         public IActionResult Index()
         {
+
             return Content("Hello World!");
         }
     }

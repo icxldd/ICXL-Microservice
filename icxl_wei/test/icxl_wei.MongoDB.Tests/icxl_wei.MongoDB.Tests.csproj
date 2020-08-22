@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>icxl_wei</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="Mongo2Go" Version="2.2.12" />
+    <ProjectReference Include="..\..\src\icxl_wei.MongoDB\icxl_wei.MongoDB.csproj" />
+    <ProjectReference Include="..\icxl_wei.TestBase\icxl_wei.TestBase.csproj" />
+  </ItemGroup>
+
+</Project>
