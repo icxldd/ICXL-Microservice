@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1231
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "icxl_api", "icxl_api\icxl_api.csproj", "{99CB2A8E-15D0-4C56-AADA-AB7752D78D36}"
 EndProject
@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "basic-infrastructure", "bas
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservice", "Microservice", "{0E96B9E9-57A6-4A08-8711-A0317AEB4B5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filedown", "filedown\filedown.csproj", "{CCA79258-89A3-4D0E-ADF8-EFA2E0632B8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{43D7EB4B-A90D-4CBF-B4F4-FE79572FC5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D7EB4B-A90D-4CBF-B4F4-FE79572FC5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43D7EB4B-A90D-4CBF-B4F4-FE79572FC5D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCA79258-89A3-4D0E-ADF8-EFA2E0632B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA79258-89A3-4D0E-ADF8-EFA2E0632B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA79258-89A3-4D0E-ADF8-EFA2E0632B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA79258-89A3-4D0E-ADF8-EFA2E0632B8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{3DC6DF39-AAF7-42A8-ABFD-62DE2808FE31} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
 		{43D7EB4B-A90D-4CBF-B4F4-FE79572FC5D2} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
 		{DDC579BF-C986-4A15-9D39-D144435C12A4} = {AEAE1B81-3E86-4413-9B34-5DB9AACF77BE}
+		{CCA79258-89A3-4D0E-ADF8-EFA2E0632B8E} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8D86CB2-D606-455C-80E7-45924F028317}

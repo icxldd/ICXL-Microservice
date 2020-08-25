@@ -56,6 +56,7 @@ namespace icxl_api_oms
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider, IApplicationLifetime lifetime)
         {
+            app.UseStaticFiles();
 
             var settingsOptions = serviceProvider.GetService<IOptions<AppConfig>>();
             var appConfig = settingsOptions.Value;
