@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace icxl_api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
@@ -24,7 +24,7 @@ namespace icxl_api.Controllers
             this.accountR = a;
         }
 
-       
+
 
 
         [HttpGet]

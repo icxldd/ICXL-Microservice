@@ -36,6 +36,7 @@ namespace icxl_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             services.AddMvcCore().AddAuthorization().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(opts =>
             {
                 // Force Camel Case to JSON
@@ -46,13 +47,23 @@ namespace icxl_api
 
 
 
+            services.AddCap(x =>
+            {
+                x.UseEntityFramework<AppDbContext>();
+                x.UseRabbitMQ(mq =>
+                {
+                    mq.HostName = "192.168.99.100";
+                    mq.Port = 5672;
+                    mq.UserName = "guest";
+                    mq.Password = "guest";
+                });
+                //x.UsePostgreSql(connStr);
+                x.UseDashboard();
+            });
+
             services.AddEntityFrameworkNpgsql();
             var connStr = Configuration["ConnectionString"];
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connStr));
-
-
-
-
 
             services.Configure<AppConfig>(Configuration);
 
@@ -85,7 +96,7 @@ namespace icxl_api
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider, IApplicationLifetime lifetime)
         {
 
-            
+
             app.UseAuthentication();
 
             var settingsOptions = serviceProvider.GetService<IOptions<AppConfig>>();
@@ -137,7 +148,7 @@ namespace icxl_api
             }
             #endregion
 
-
+            app.UseCap();
 
         }
     }
