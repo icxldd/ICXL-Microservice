@@ -37,7 +37,7 @@ namespace Test
 
             client.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = await client.GetAsync("http://192.168.0.105:9703/basic/api/Home");
+            var response = await client.GetAsync("http://192.168.0.105:9703/oms/api/values");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);

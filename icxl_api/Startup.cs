@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using icxl_api.AppContext;
 using icxl_api.Entities;
+using icxl_api.Filter;
 using icxl_api.IRepository;
 using icxl_api.Repository;
 using icxl_api.Services;
@@ -20,7 +21,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
+using AutoMapper;
 using Swashbuckle.AspNetCore.Swagger;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+
 namespace icxl_api
 {
     public class Startup
@@ -32,10 +37,19 @@ namespace icxl_api
 
         public IConfiguration Configuration { get; }
 
+
+        public static IContainer ApplicationContainer { get; set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                //options.Filters.Add<XcActionFilter>();
+            });
+            Mapper.Initialize(cfg => cfg.AddProfile<AutoMapperConfigs>());
+            services.AddAutoMapper();
+
 
             services.AddMvcCore().AddAuthorization().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(opts =>
             {
@@ -44,8 +58,6 @@ namespace icxl_api
                 //ignore Entity framework Navigation property back reference problem. Blog >> Posts. Post >> Blog. Blog.post.blog will been ignored.
                 opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             }).AddJsonFormatters();
-
-
 
             services.AddCap(x =>
             {
@@ -57,7 +69,6 @@ namespace icxl_api
                     mq.UserName = "guest";
                     mq.Password = "guest";
                 });
-                //x.UsePostgreSql(connStr);
                 x.UseDashboard();
             });
 
@@ -80,31 +91,35 @@ namespace icxl_api
                 options.Audience = "api1";
             });
 
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "MyTestService", Version = "v1" });
             });
 
+            //services.AddScoped<IAccountRepository, AccountRepository>();
 
-
-            services.AddSingleton<IAccountRepository, AccountRepository>();
-
+            //初始化容器
+            var builder = new ContainerBuilder();
+            //管道寄居
+            builder.Populate(services);
+            builder.RegisterType<AccountRepository>().As<IAccountRepository>();
+            //构造
+            ApplicationContainer = builder.Build();
+            //将AutoFac反馈到管道中
+            return new AutofacServiceProvider(ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider, IApplicationLifetime lifetime)
         {
 
-
+            app.UseStatusCodePages();
             app.UseAuthentication();
 
             var settingsOptions = serviceProvider.GetService<IOptions<AppConfig>>();
             var appConfig = settingsOptions.Value;
 
-
             app.UseCors("AllowAll");
-
 
 
             if (env.IsDevelopment())
@@ -116,10 +131,7 @@ namespace icxl_api
                 app.UseHsts();
             }
 
-
-
             app.UseHttpsRedirection();
-
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

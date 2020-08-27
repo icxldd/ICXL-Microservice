@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using icxl_api.Entities;
 using icxl_api.IRepository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace icxl_api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
@@ -26,11 +27,19 @@ namespace icxl_api.Controllers
 
 
 
-
-        [HttpGet]
-        public ActionResult Get()
+        [HttpPost]
+        public ActionResult Post([FromBody]CreateAccountDto dto)
         {
-            return Content(this.accountR.a().ToString());
+            if (!ModelState.IsValid)
+            {
+                return Forbid();
+            }
+            else
+            {
+                this.accountR.a(dto);
+                return Ok();
+            }
         }
+
     }
 }
