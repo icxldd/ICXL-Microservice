@@ -16,10 +16,10 @@ namespace icxl_api.Controllers
     public class HomeController : ControllerBase
     {
 
-        private readonly IAccountRepository accountR;
+        private readonly IRepository<Account, AccountDto> accountR;
 
 
-        public HomeController(IAccountRepository a)
+        public HomeController(IRepository<Account, AccountDto> a)
         {
 
             this.accountR = a;
@@ -31,7 +31,7 @@ namespace icxl_api.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]CreateAccountDto dto)
+        public ActionResult Post([FromBody]AccountDto dto)
         {
             if (!ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace icxl_api.Controllers
             }
             else
             {
-                this.accountR.a(dto);
+                //this.accountR.a(dto);
                 return Ok();
             }
         }

@@ -51,8 +51,8 @@ namespace icxl_api.Controllers
             _db.Account.Add(new Account()
             {
                 Id = "cc" + DateTime.Now.ToString(),
-                name = "2",
-                password = "3"
+                Name = "2",
+                PassWord = "3"
             });
             _db.SaveChanges();
             _capBus.Publish("test.scope.ef.success.a.check", DateTime.Now);
@@ -68,8 +68,8 @@ namespace icxl_api.Controllers
             _db.Account.Add(new Account()
             {
                 Id = "shiwu" + DateTime.Now.ToString(),
-                name = "2",
-                password = "3"
+                Name = "2",
+                PassWord = "3"
             });
             _db.SaveChanges();
             _capBus.Publish("ShiWuReceivedMessage", transaction);
@@ -83,8 +83,8 @@ namespace icxl_api.Controllers
             _db.Account.Add(new Account()
             {
                 Id = "ShiWuReceivedMessage" + DateTime.Now.ToString(),
-                name = "2",
-                password = "3"
+                Name = "2",
+                PassWord = "3"
             });
             _db.SaveChanges();
             t.Commit();
@@ -98,8 +98,8 @@ namespace icxl_api.Controllers
             _db.Account.Add(new Account()
             {
                 Id = "CheckTestAReceivedMessage" + DateTime.Now.ToString(),
-                name = "2",
-                password = "3"
+                Name = "2",
+                PassWord = "3"
             });
             _db.SaveChanges();
 

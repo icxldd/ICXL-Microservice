@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace icxl_api.IRepository
 {
-    public interface IAccountRepository
+    public interface IRepository<T, DTO>
+        where T : class, new()
+        where DTO : class, new()
     {
-        int a(CreateAccountDto a);
+
     }
 }

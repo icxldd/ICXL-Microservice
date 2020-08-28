@@ -113,8 +113,8 @@ namespace icxl_api
                 {
                     Account a = new Account();
                     a.Id = "123";
-                    a.name = "icxl";
-                    a.password = "123456";
+                    a.Name = "icxl";
+                    a.PassWord = "123456";
                     dbContext.Account.Add(a);
                     dbContext.SaveChanges();
                 }

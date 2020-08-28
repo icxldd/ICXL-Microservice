@@ -11,8 +11,8 @@ namespace icxl_api.Services
     {
         public AutoMapperConfigs() {
 
-            CreateMap<Account, CreateAccountDto>();
-            CreateMap<CreateAccountDto, Account>();
+            CreateMap<Account, AccountDto>();
+            CreateMap<AccountDto, Account>();
         }
 
 

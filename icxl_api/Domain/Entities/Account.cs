@@ -15,7 +15,7 @@ namespace icxl_api.Entities
         public string PassWord { get; set; }
     }
 
-    public class CreateAccountDto
+    public class AccountDto
     {
         [Required(ErrorMessage = "ID不得为空")]
         public string Id { get; set; }

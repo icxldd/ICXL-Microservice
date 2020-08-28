@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using icxl_api.Entities;
 using icxl_api.IRepository;
 using icxl_api.Repository;
 using System;
@@ -12,7 +13,7 @@ namespace icxl_api.Infrastructure.StartupInit.IOC
     {
         public static void Register(ContainerBuilder builder)
         {
-            builder.RegisterType<AccountRepository>().As<IAccountRepository>();
+            builder.RegisterType<AccountRepository>().As<IRepository<Account, AccountDto>>();
         }
     }
 }

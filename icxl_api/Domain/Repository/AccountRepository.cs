@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace icxl_api.Repository
 {
-    public class AccountRepository : IAccountRepository
+    public class AccountRepository : IRepository.IRepository<Account, AccountDto>
     {
         private readonly AppDbContext _db;
         public AccountRepository(AppDbContext db)
@@ -17,7 +17,7 @@ namespace icxl_api.Repository
         }
 
 
-        public int a(CreateAccountDto dto)
+        public int a(AccountDto dto)
         {
             var dtod = AutoMapper.Mapper.Map<Account>(dto);
             _db.Account.Add(dtod);
