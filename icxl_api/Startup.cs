@@ -25,7 +25,7 @@ using AutoMapper;
 using Swashbuckle.AspNetCore.Swagger;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-
+using icxl_api.Infrastructure.ServiceCollection;
 namespace icxl_api
 {
     public class Startup
@@ -43,13 +43,12 @@ namespace icxl_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+
+            var connStr = Configuration["ConnectionString"];
             services.AddMvc(options =>
             {
                 //options.Filters.Add<XcActionFilter>();
             });
-            Mapper.Initialize(cfg => cfg.AddProfile<AutoMapperConfigs>());
-            services.AddAutoMapper();
-
 
             services.AddMvcCore().AddAuthorization().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(opts =>
             {
@@ -58,70 +57,32 @@ namespace icxl_api
                 //ignore Entity framework Navigation property back reference problem. Blog >> Posts. Post >> Blog. Blog.post.blog will been ignored.
                 opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             }).AddJsonFormatters();
-
-            services.AddCap(x =>
-            {
-                x.UseEntityFramework<AppDbContext>();
-                x.UseRabbitMQ(mq =>
-                {
-                    mq.HostName = "localhost";
-                    mq.Port = 5672;
-                    mq.UserName = "guest";
-                    mq.Password = "guest";
-                });
-                x.UseDashboard();
-            });
-
             services.AddEntityFrameworkNpgsql();
-            var connStr = Configuration["ConnectionString"];
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connStr));
-
             services.Configure<AppConfig>(Configuration);
-
             services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()));
-            Console.WriteLine("http://" + Configuration["idsUrl:IP"] + ":" + Configuration["idsUrl:Port"]);
-            services.AddAuthentication("Bearer")
-            .AddJwtBearer("Bearer", options =>
-            {
-                options.Authority = "http://" + Configuration["idsUrl:IP"] + ":" + Configuration["idsUrl:Port"];
-                options.RequireHttpsMetadata = false;
-                options.Audience = "api1";
-            });
-
+            services._AddAutoMapper();
+            services._AddCap();
+            services._AddAuthentication(Configuration["idsUrl:IP"], Configuration["idsUrl:Port"]);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "MyTestService", Version = "v1" });
             });
 
-            //services.AddScoped<IAccountRepository, AccountRepository>();
-
-            //初始化容器
-            var builder = new ContainerBuilder();
-            //管道寄居
-            builder.Populate(services);
-            builder.RegisterType<AccountRepository>().As<IAccountRepository>();
-            //构造
-            ApplicationContainer = builder.Build();
-            //将AutoFac反馈到管道中
-            return new AutofacServiceProvider(ApplicationContainer);
+            return services._AddAutoFac(ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider, IApplicationLifetime lifetime)
         {
-
             app.UseStatusCodePages();
             app.UseAuthentication();
-
             var settingsOptions = serviceProvider.GetService<IOptions<AppConfig>>();
             var appConfig = settingsOptions.Value;
-
             app.UseCors("AllowAll");
-
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
