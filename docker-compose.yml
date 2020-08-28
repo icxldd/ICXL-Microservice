@@ -3,6 +3,24 @@ version: '3.4'
 services:
 
 
+  icxl-api:
+   image: ${DockerHub_Registry}/icxl-api:${DockerImage_Tag}
+   build:
+     context: .
+     dockerfile: icxl_api/Dockerfile
+
+  icxl-api-oms:
+   image: ${DockerHub_Registry}/icxl-api-oms:${DockerImage_Tag}
+   build:
+     context: .
+     dockerfile: icxl_api_oms/Dockerfile
+
+  icxl-apigateway:
+   image: ${DockerHub_Registry}/icxl-apigateway:${DockerImage_Tag}
+   build:
+     context: .
+     dockerfile: icxl_APIGateway/Dockerfile
+
   icxl-ids:
    image: ${DockerHub_Registry}/icxl-ids:${DockerImage_Tag}
    build:

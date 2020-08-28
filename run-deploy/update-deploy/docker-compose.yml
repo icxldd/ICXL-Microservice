@@ -52,5 +52,23 @@ services:
  #   restart: always
 
 
+
+     #idsServer
+  #app-infrastructure-idsServer:
+   # container_name: app-infrastructure-idsServer-${ContainerSuffix}
+   # image: ${DockerHub_Registry}/icxl-ids:${DockerImage_Tag}
+   # environment:
+   #   - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=${BasicServerDB};User Id=${PostgresDB_User};Password=${PostgresDB_Password}
+      # Consul
+     # - ConsulConfig:Server:IP=app-infrastructure-consul
+     # - ConsulConfig:Server:Port=8500
+     # - ConsulConfig:Client:IP=app-infrastructure-idsServer
+     # - ConsulConfig:Client:Port=80
+    #ports:
+     # - "5000:80"
+    #networks:
+     # - morejeenet
+    #restart: always
+
 networks:
   morejeenet:
