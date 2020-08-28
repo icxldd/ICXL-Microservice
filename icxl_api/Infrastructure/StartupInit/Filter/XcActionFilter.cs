@@ -29,6 +29,7 @@ namespace icxl_api.Filter
                     }
                 }
                 context.Result = new JsonResult(result);
+
             }
         }
 

@@ -47,7 +47,7 @@ namespace icxl_api
             var connStr = Configuration["ConnectionString"];
             services.AddMvc(options =>
             {
-                //options.Filters.Add<XcActionFilter>();
+                //options.Filters.Add<logActionFilter>();
             });
 
             services.AddMvcCore().AddAuthorization().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(opts =>
