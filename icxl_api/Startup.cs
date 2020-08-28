@@ -64,7 +64,7 @@ namespace icxl_api
                 x.UseEntityFramework<AppDbContext>();
                 x.UseRabbitMQ(mq =>
                 {
-                    mq.HostName = "192.168.99.100";
+                    mq.HostName = "localhost";
                     mq.Port = 5672;
                     mq.UserName = "guest";
                     mq.Password = "guest";

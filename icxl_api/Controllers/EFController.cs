@@ -26,16 +26,26 @@ namespace icxl_api.Controllers
             _capBus = capPublisher;
             _db = db;
         }
-
         // GET: api/EF
         [HttpGet]
         public string Get()
         {
             string str = JsonConvert.SerializeObject(_db.Account.ToList());
-
-
             return str;
         }
+        [Route("icxl")]
+        public string icxl()
+        {
+
+            _capBus.Publish("icxl", DateTime.Now);
+            return JsonConvert.SerializeObject(_db.Account.ToList());
+        }
+        [CapSubscribe("icxl")]
+        public void icxlcallback(DateTime datetime)
+        {
+            System.Console.WriteLine("icxlcallback" + datetime.ToString());
+        }
+
         [Route("cc")]
         public string cc()
         {
