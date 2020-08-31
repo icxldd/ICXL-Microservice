@@ -9,4 +9,3 @@ D:\ICXL\icxl_core\icxl_api\efstudy\bin\Debug\netcoreapp2.2\efstudy.pdb
 D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.dll
 D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.pdb
 D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.csprojAssemblyReference.cache
-D:\ICXL\icxl_core\icxl_api\efstudy\obj\Debug\netcoreapp2.2\efstudy.genruntimeconfig.cache

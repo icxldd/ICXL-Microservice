@@ -17,7 +17,6 @@ namespace icxl_api.Entities
 
     public class AccountDto
     {
-        [Required(ErrorMessage = "ID不得为空")]
         public string Id { get; set; }
         [Required(ErrorMessage = "name不得为空")]
         [NoSpace(ErrorMessage = "不能包含空格")]

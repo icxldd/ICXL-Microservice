@@ -26,6 +26,8 @@ using Swashbuckle.AspNetCore.Swagger;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using icxl_api.Infrastructure.ServiceCollection;
+using icxl_api.Domain.Entities;
+
 namespace icxl_api
 {
     public class Startup
@@ -118,6 +120,55 @@ namespace icxl_api
                     dbContext.Account.Add(a);
                     dbContext.SaveChanges();
                 }
+
+                if (dbContext.Menu.Count() == 0)
+                {
+                    Menu a = new Menu();
+                    a.id = Guid.NewGuid().ToString();
+                    a.name = "系统管理";
+                    a.parentId = "";
+
+                    Menu aa = new Menu();
+                    aa.id = Guid.NewGuid().ToString();
+                    aa.name = "人员管理";
+                    aa.parentId = a.id;
+
+                    Menu aaa = new Menu();
+                    aaa.id = Guid.NewGuid().ToString();
+                    aaa.name = "权限管理";
+                    aaa.parentId = a.id;
+
+
+
+
+                    Menu a1 = new Menu();
+                    a1.id = Guid.NewGuid().ToString();
+                    a1.name = "业务管理";
+                    a1.parentId = "";
+
+                    Menu aa1 = new Menu();
+                    aa1.id = Guid.NewGuid().ToString();
+                    aa1.name = "订单管理";
+                    aa1.parentId = a1.id;
+
+                    Menu aaa1 = new Menu();
+                    aaa1.id = Guid.NewGuid().ToString();
+                    aaa1.name = "流程管理";
+                    aaa1.parentId = a1.id;
+
+
+
+
+                    dbContext.Menu.Add(a);
+                    dbContext.Menu.Add(aa);
+                    dbContext.Menu.Add(aaa);
+                    dbContext.Menu.Add(a1);
+                    dbContext.Menu.Add(aa1);
+                    dbContext.Menu.Add(aaa1);
+                    dbContext.SaveChanges();
+                }
+
+
             }
             #endregion
 

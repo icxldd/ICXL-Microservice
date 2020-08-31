@@ -1,4 +1,5 @@
-﻿using icxl_api.Entities;
+﻿using icxl_api.Domain.Entities;
+using icxl_api.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,9 @@ namespace icxl_api.AppContext
         #endregion
 
         public DbSet<Account> Account { get; set; }
+
+        public DbSet<Menu> Menu { get; set; }
+        
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseSqlServer(@"Data Source=.;Initial Catalog=icxlCore;Integrated Security=True");

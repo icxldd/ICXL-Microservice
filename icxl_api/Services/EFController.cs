@@ -26,107 +26,108 @@ namespace icxl_api.Controllers
             _capBus = capPublisher;
             _db = db;
         }
-        // GET: api/EF
-        [HttpGet]
-        public string Get()
-        {
-            string str = JsonConvert.SerializeObject(_db.Account.ToList());
-            return str;
-        }
-        [Route("icxl")]
-        public string icxl()
-        {
-            _capBus.Publish("icxl", DateTime.Now);
-            return JsonConvert.SerializeObject(_db.Account.ToList());
-        }
-        [CapSubscribe("icxl")]
-        public void icxlcallback(DateTime datetime)
-        {
-            System.Console.WriteLine("icxlcallback" + datetime.ToString());
-        }
+        //// GET: api/EF
+        //[HttpGet]
+        //public string Get()
+        //{
+        //    string str = JsonConvert.SerializeObject(_db.Account.ToList());
+        //    return str;
+        //}
+        //[Route("icxl")]
+        //public string icxl()
+        //{
+        //    _capBus.Publish("icxl", DateTime.Now);
+        //    return JsonConvert.SerializeObject(_db.Account.ToList());
+        //}
+        //[NonAction]
+        //[CapSubscribe("icxl")]
+        //public void icxlcallback(DateTime datetime)
+        //{
+        //    System.Console.WriteLine("icxlcallback" + datetime.ToString());
+        //}
 
-        [Route("cc")]
-        public string cc()
-        {
-            _db.Account.Add(new Account()
-            {
-                Id = "cc" + DateTime.Now.ToString(),
-                Name = "2",
-                PassWord = "3"
-            });
-            _db.SaveChanges();
-            _capBus.Publish("test.scope.ef.success.a.check", DateTime.Now);
-            return JsonConvert.SerializeObject(_db.Account.ToList());
-        }
-
-
-
-        [Route("shiwu")]
-        public string shiwu()
-        {
-            var transaction = _db.Database.BeginTransaction();
-            _db.Account.Add(new Account()
-            {
-                Id = "shiwu" + DateTime.Now.ToString(),
-                Name = "2",
-                PassWord = "3"
-            });
-            _db.SaveChanges();
-            _capBus.Publish("ShiWuReceivedMessage", transaction);
-
-            return "";
-        }
-
-        [CapSubscribe("ShiWuReceivedMessage")]
-        public void ShiWuReceivedMessage(IDbContextTransaction t)
-        {
-            _db.Account.Add(new Account()
-            {
-                Id = "ShiWuReceivedMessage" + DateTime.Now.ToString(),
-                Name = "2",
-                PassWord = "3"
-            });
-            _db.SaveChanges();
-            t.Commit();
-        }
+        //[Route("cc")]
+        //public string cc()
+        //{
+        //    _db.Account.Add(new Account()
+        //    {
+        //        Id = "cc" + DateTime.Now.ToString(),
+        //        Name = "2",
+        //        PassWord = "3"
+        //    });
+        //    _db.SaveChanges();
+        //    _capBus.Publish("test.scope.ef.success.a.check", DateTime.Now);
+        //    return JsonConvert.SerializeObject(_db.Account.ToList());
+        //}
 
 
-        [NonAction]
-        [CapSubscribe("test.scope.ef.success.a.check")]
-        public void CheckTestAReceivedMessage(DateTime datetime)
-        {
-            _db.Account.Add(new Account()
-            {
-                Id = "CheckTestAReceivedMessage" + DateTime.Now.ToString(),
-                Name = "2",
-                PassWord = "3"
-            });
-            _db.SaveChanges();
 
-        }
-        // GET: api/EF/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[Route("shiwu")]
+        //public string shiwu()
+        //{
+        //    var transaction = _db.Database.BeginTransaction();
+        //    _db.Account.Add(new Account()
+        //    {
+        //        Id = "shiwu" + DateTime.Now.ToString(),
+        //        Name = "2",
+        //        PassWord = "3"
+        //    });
+        //    _db.SaveChanges();
+        //    _capBus.Publish("ShiWuReceivedMessage", transaction);
 
-        // POST: api/EF
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        //    return "";
+        //}
+        //[NonAction]
+        //[CapSubscribe("ShiWuReceivedMessage")]
+        //public void ShiWuReceivedMessage(IDbContextTransaction t)
+        //{
+        //    _db.Account.Add(new Account()
+        //    {
+        //        Id = "ShiWuReceivedMessage" + DateTime.Now.ToString(),
+        //        Name = "2",
+        //        PassWord = "3"
+        //    });
+        //    _db.SaveChanges();
+        //    t.Commit();
+        //}
 
-        // PUT: api/EF/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //[NonAction]
+        //[CapSubscribe("test.scope.ef.success.a.check")]
+        //public void CheckTestAReceivedMessage(DateTime datetime)
+        //{
+        //    _db.Account.Add(new Account()
+        //    {
+        //        Id = "CheckTestAReceivedMessage" + DateTime.Now.ToString(),
+        //        Name = "2",
+        //        PassWord = "3"
+        //    });
+        //    _db.SaveChanges();
+
+        //}
+        //// GET: api/EF/5
+        //[HttpGet("{id}", Name = "Get")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
+
+        //// POST: api/EF
+        //[HttpPost]
+        //public void Post([FromBody] string value)
+        //{
+        //}
+
+        //// PUT: api/EF/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
+
+        //// DELETE: api/ApiWithActions/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

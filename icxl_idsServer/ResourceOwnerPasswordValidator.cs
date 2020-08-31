@@ -14,10 +14,10 @@ namespace icxl_idsServer
         public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
 
-            int a = Convert.ToInt32(DB.dao.Ado.GetScalar(string.Format("select count(1) from \"Account\" where \"name\" ='{0}' and \"password\" = '{1}'", context.UserName, context.Password)));
+            int a = Convert.ToInt32(DB.dao.Ado.GetScalar(string.Format("select count(1) from \"Account\" where \"Name\" ='{0}' and \"PassWord\" = '{1}'", context.UserName, context.Password)));
             if (a > 0)
             {
-                string id = Convert.ToString(DB.dao.Ado.GetScalar(string.Format("select \"Id\" from \"Account\" where \"name\" ='{0}' and \"password\" = '{1}'", context.UserName, context.Password)));
+                string id = Convert.ToString(DB.dao.Ado.GetScalar(string.Format("select \"Id\" from \"Account\" where \"Name\" ='{0}' and \"PassWord\" = '{1}'", context.UserName, context.Password)));
                 context.Result = new GrantValidationResult(
                  subject: context.UserName,
                  authenticationMethod: "custom",
