@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1231
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "icxl_api", "icxl_api\icxl_api.csproj", "{99CB2A8E-15D0-4C56-AADA-AB7752D78D36}"
 EndProject
@@ -49,11 +49,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservice", "Microservic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "filedown", "filedown\filedown.csproj", "{CCA79258-89A3-4D0E-ADF8-EFA2E0632B8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "observerTest", "observerTest\observerTest.csproj", "{4E0FED57-8702-4EFE-8ADC-CFB525B9F104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "observerTest", "observerTest\observerTest.csproj", "{4E0FED57-8702-4EFE-8ADC-CFB525B9F104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer_Consumer", "Producer_Consumer\Producer_Consumer.csproj", "{B9006774-E014-4163-A3C6-9609F273A899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer_Consumer", "Producer_Consumer\Producer_Consumer.csproj", "{B9006774-E014-4163-A3C6-9609F273A899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryTest", "FactoryTest\FactoryTest.csproj", "{E65AFCF8-FBF8-4059-A98E-1CDD2ACA6B24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryTest", "FactoryTest\FactoryTest.csproj", "{E65AFCF8-FBF8-4059-A98E-1CDD2ACA6B24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yufa", "yufa\yufa.csproj", "{E310C503-85B6-47CC-A683-EA74A36AAC6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "buildLib", "buildLib", "{4BE54360-F956-404B-AB12-EB3C76D1E140}"
+	ProjectSection(SolutionItems) = preProject
+		run-deploy\buildLib\.env = run-deploy\buildLib\.env
+		run-deploy\buildLib\docker-compose.yml = run-deploy\buildLib\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DF105725-B34A-4CB9-8BF3-4EBFF595CE34}"
+	ProjectSection(SolutionItems) = preProject
+		run-deploy\test\docker-compose.yml = run-deploy\test\docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +114,10 @@ Global
 		{E65AFCF8-FBF8-4059-A98E-1CDD2ACA6B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E65AFCF8-FBF8-4059-A98E-1CDD2ACA6B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E65AFCF8-FBF8-4059-A98E-1CDD2ACA6B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E310C503-85B6-47CC-A683-EA74A36AAC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E310C503-85B6-47CC-A683-EA74A36AAC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E310C503-85B6-47CC-A683-EA74A36AAC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E310C503-85B6-47CC-A683-EA74A36AAC6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +137,9 @@ Global
 		{4E0FED57-8702-4EFE-8ADC-CFB525B9F104} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
 		{B9006774-E014-4163-A3C6-9609F273A899} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
 		{E65AFCF8-FBF8-4059-A98E-1CDD2ACA6B24} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
+		{E310C503-85B6-47CC-A683-EA74A36AAC6F} = {0D22B488-A390-48FC-B42C-2CBB5F40F912}
+		{4BE54360-F956-404B-AB12-EB3C76D1E140} = {AEAE1B81-3E86-4413-9B34-5DB9AACF77BE}
+		{DF105725-B34A-4CB9-8BF3-4EBFF595CE34} = {AEAE1B81-3E86-4413-9B34-5DB9AACF77BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8D86CB2-D606-455C-80E7-45924F028317}

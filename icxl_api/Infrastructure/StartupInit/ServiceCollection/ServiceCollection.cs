@@ -55,6 +55,7 @@ namespace icxl_api.Infrastructure.ServiceCollection
             var builder = new ContainerBuilder();
             //管道寄居
             builder.Populate(services);
+            
             RegisterRepository.Register(builder);//注册仓储
             //构造
             ApplicationContainer = builder.Build();

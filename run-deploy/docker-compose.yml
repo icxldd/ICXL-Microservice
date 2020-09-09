@@ -1,114 +1,239 @@
+# version: '3.4'
+
+# services:
+
+
+# # MoreJee Database
+  # app-infrastructure-pgsql:
+    # container_name: app-infrastructure-pgsql-${ContainerSuffix}
+    # image: postgres:10.5
+    # volumes:
+      # - "/var/bamboo/dmzpostgresdb/data:/var/lib/postgresql/data"
+    # environment:
+      # - POSTGRES_USER=${PostgresDB_User}
+      # - POSTGRES_PASSWORD=${PostgresDB_Password}
+    # ports:
+      # - "${ApplicationStartPortPrefix}01:5432"
+    # networks:
+      # - morejeenet
+    # restart: always
+# # 1.2 Consul
+  # app-infrastructure-consul:
+    # container_name: app-infrastructure-consul-${ContainerSuffix}
+    # image: consul:1.4.4
+    # command: agent -dev -client=0.0.0.0 -bind=0.0.0.0
+    # ports:
+      # - "${ApplicationStartPortPrefix}02:8500"
+    # networks:
+      # - morejeenet
+    # restart: always
+# # 1.3 APIGateway
+  # app-infrastructure-apigateway:
+    # container_name: app-infrastructure-apigateway-${ContainerSuffix}
+    # image: ${DockerHub_Registry}/icxl-apigateway:${DockerImage_Tag}
+    # ports:
+      # - "${ApplicationStartPortPrefix}03:80"
+    # volumes:
+      # - "/var/${VolumeBaseDirectory}/app-infrastructure-apigateway/logs:/app/logs"
+    # environment:
+      # - ASPNETCORE_ENVIRONMENT=Release
+    # networks:
+      # - morejeenet
+    # depends_on:
+      # - app-infrastructure-pgsql
+      # - app-infrastructure-consul
+    # restart: always
+# # 2. app microservices
+# # 2.1 basic ms
+  # app-microservice-basic-api:
+    # container_name: app-microservice-basic-api-${ContainerSuffix}
+    # image: ${DockerHub_Registry}/icxl-api:${DockerImage_Tag}
+    # environment:
+      # - idsUrl:IP=${IDSIP}
+      # - idsUrl:Port=${IDSPORT}
+      # #- ConnectionString=Data Source=app-infrastructure-sqlserver;Port=1433;Initial Catalog=apiCore; User Id=sa;Password=cxi1230123
+      # - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=${BasicServerDB};User Id=${PostgresDB_User};Password=${PostgresDB_Password}
+      # # Consul
+      # - ConsulConfig:Server:IP=app-infrastructure-consul
+      # - ConsulConfig:Server:Port=8500
+      # - ConsulConfig:Client:IP=app-microservice-basic-api
+      # - ConsulConfig:Client:Port=80
+    # ports:
+      # - "${ApplicationStartPortPrefix}11:80"
+    # networks:
+      # - morejeenet
+    # depends_on:
+      # - app-infrastructure-apigateway
+    # restart: always
+# # 2.2 oms ms
+  # app-microservice-oms-api:
+    # container_name: app-microservice-oms-api-${ContainerSuffix}
+    # image: ${DockerHub_Registry}/icxl-api-oms:${DockerImage_Tag}
+    # environment:
+      # - idsUrl:IP=${IDSIP}
+      # - idsUrl:Port=${IDSPORT}
+      # - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=${BasicServerDB};User Id=${PostgresDB_User};Password=${PostgresDB_Password}
+      # # Consul
+      # - ConsulConfig:Server:IP=app-infrastructure-consul
+      # - ConsulConfig:Server:Port=8500
+      # - ConsulConfig:Client:IP=app-microservice-oms-api
+      # - ConsulConfig:Client:Port=80
+    # ports:
+      # - "${ApplicationStartPortPrefix}12:80"
+    # networks:
+      # - morejeenet
+    # depends_on:
+      # - app-infrastructure-apigateway
+    # restart: always
+
+     # #idsServer
+  # app-infrastructure-idsServer:
+    # container_name: app-infrastructure-idsServer-${ContainerSuffix}
+    # image: ${DockerHub_Registry}/icxl-ids:${DockerImage_Tag}
+    # environment:
+      # - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=${BasicServerDB};User Id=${PostgresDB_User};Password=${PostgresDB_Password}
+      # # Consul
+      # - ConsulConfig:Server:IP=app-infrastructure-consul
+      # - ConsulConfig:Server:Port=8500
+      # - ConsulConfig:Client:IP=app-infrastructure-idsServer
+      # - ConsulConfig:Client:Port=80
+    # ports:
+      # - "5000:80"
+    # networks:
+      # - morejeenet
+    # depends_on:
+      # - app-microservice-basic-api
+    # restart: always
+
+# networks:
+  # morejeenet:
+  
+  
+  
+  
 version: '3.4'
 
 services:
 
-
-# MoreJee Database
-  app-infrastructure-pgsql:
-    container_name: app-infrastructure-pgsql-${ContainerSuffix}
-    image: postgres:10.5
-    volumes:
-      - "/var/bamboo/dmzpostgresdb/data:/var/lib/postgresql/data"
+# 2. app microservices
+# 2.1 basic ms
+  app-microservice-basic-api:
+    container_name: app-microservice-basic-api-icxl
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api:0909
     environment:
-      - POSTGRES_USER=${PostgresDB_User}
-      - POSTGRES_PASSWORD=${PostgresDB_Password}
+      - idsUrl:IP=icxl-ids
+      - idsUrl:Port=5000
+      #- ConnectionString=Data Source=app-infrastructure-sqlserver;Port=1433;Initial Catalog=apiCore; User Id=sa;Password=cxi1230123
+      - ConnectionString=Server=icxl-db;Port=9501;Database=appbasic;User Id=postgres;Password=root
+      # Consul
+      - ConsulConfig:Server:IP=icxl-consul
+      - ConsulConfig:Server:Port=9502
+      - ConsulConfig:Client:IP=icxl-basicapi
+      - ConsulConfig:Client:Port=80
     ports:
-      - "${ApplicationStartPortPrefix}01:5432"
+      - "9511:80"
     networks:
-      - morejeenet
+      icxl-work:
+        aliases:
+          - icxl-basicapi
+    depends_on:
+      - app-infrastructure-idsServer
+    restart: always
+# 2.2 oms ms
+  app-microservice-oms-api:
+    container_name: app-microservice-oms-api-icxl
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api-oms:0909
+    environment:
+      - idsUrl:IP=icxl-ids
+      - idsUrl:Port=5000
+      - ConnectionString=Server=icxl-db;Port=9501;Database=appoms;User Id=postgres;Password=root
+      # Consul
+      - ConsulConfig:Server:IP=icxl-consul
+      - ConsulConfig:Server:Port=9502
+      - ConsulConfig:Client:IP=icxl-basicapi
+      - ConsulConfig:Client:Port=80
+    ports:
+      - "9512:80"
+    networks:
+      icxl-work:
+        aliases:
+          - icxl-omsapi
+    depends_on:
+      - app-infrastructure-idsServer
+    restart: always
+
+    # MoreJee Database
+  app-infrastructure-pgsql:
+    container_name: app-infrastructure-pgsql-icxl
+    image: postgres:10.5
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "9501:5432"
+    networks:
+      icxl-work:
+        aliases:
+          - icxl-db
     restart: always
 # 1.2 Consul
   app-infrastructure-consul:
-    container_name: app-infrastructure-consul-${ContainerSuffix}
+    container_name: app-infrastructure-consul-icxl
     image: consul:1.4.4
-    command: agent -dev -client=0.0.0.0 -bind=0.0.0.0
+    command: "agent -dev -client=0.0.0.0 -bind='{{ GetInterfaceIP \"eth0\" }}'"
     ports:
-      - "${ApplicationStartPortPrefix}02:8500"
+      - "9502:8500"
     networks:
-      - morejeenet
+      icxl-work:
+        aliases:
+          - icxl-consul
     restart: always
 # 1.3 APIGateway
   app-infrastructure-apigateway:
-    container_name: app-infrastructure-apigateway-${ContainerSuffix}
-    image: ${DockerHub_Registry}/icxl-apigateway:${DockerImage_Tag}
+    container_name: app-infrastructure-apigateway-icxl
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-apigateway:0909
     ports:
-      - "${ApplicationStartPortPrefix}03:80"
+      - "9503:80"
     volumes:
-      - "/var/${VolumeBaseDirectory}/app-infrastructure-apigateway/logs:/app/logs"
+      - "/var/VolumeBaseDirectory/app-infrastructure-apigateway/logs:/app/logs"
     environment:
       - ASPNETCORE_ENVIRONMENT=Release
     networks:
-      - morejeenet
+      icxl-work:
+        aliases:
+          - icxl-gateway
     depends_on:
       - app-infrastructure-pgsql
       - app-infrastructure-consul
     restart: always
-# 2. app microservices
-# 2.1 basic ms
-  app-microservice-basic-api:
-    container_name: app-microservice-basic-api-${ContainerSuffix}
-    image: ${DockerHub_Registry}/icxl-api:${DockerImage_Tag}
-    environment:
-      - idsUrl:IP=${IDSIP}
-      - idsUrl:Port=${IDSPORT}
-      #- ConnectionString=Data Source=app-infrastructure-sqlserver;Port=1433;Initial Catalog=apiCore; User Id=sa;Password=cxi1230123
-      - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=${BasicServerDB};User Id=${PostgresDB_User};Password=${PostgresDB_Password}
-      # Consul
-      - ConsulConfig:Server:IP=app-infrastructure-consul
-      - ConsulConfig:Server:Port=8500
-      - ConsulConfig:Client:IP=app-microservice-basic-api
-      - ConsulConfig:Client:Port=80
-    ports:
-      - "${ApplicationStartPortPrefix}11:80"
-    networks:
-      - morejeenet
-    depends_on:
-      - app-infrastructure-apigateway
-    restart: always
-# 2.2 oms ms
-  app-microservice-oms-api:
-    container_name: app-microservice-oms-api-${ContainerSuffix}
-    image: ${DockerHub_Registry}/icxl-api-oms:${DockerImage_Tag}
-    environment:
-      - idsUrl:IP=${IDSIP}
-      - idsUrl:Port=${IDSPORT}
-      - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=${BasicServerDB};User Id=${PostgresDB_User};Password=${PostgresDB_Password}
-      # Consul
-      - ConsulConfig:Server:IP=app-infrastructure-consul
-      - ConsulConfig:Server:Port=8500
-      - ConsulConfig:Client:IP=app-microservice-oms-api
-      - ConsulConfig:Client:Port=80
-    ports:
-      - "${ApplicationStartPortPrefix}12:80"
-    networks:
-      - morejeenet
-    depends_on:
-      - app-infrastructure-apigateway
-    restart: always
-
      #idsServer
   app-infrastructure-idsServer:
-    container_name: app-infrastructure-idsServer-${ContainerSuffix}
-    image: ${DockerHub_Registry}/icxl-ids:${DockerImage_Tag}
+    container_name: app-infrastructure-idsServer-icxl
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-ids:0909
     environment:
-      - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=${BasicServerDB};User Id=${PostgresDB_User};Password=${PostgresDB_Password}
+      - ConnectionString=Server=icxl-db;Port=5432;Database=appbasic;User Id=postgres;Password=root
       # Consul
-      - ConsulConfig:Server:IP=app-infrastructure-consul
+      - ConsulConfig:Server:IP=icxl-consul
       - ConsulConfig:Server:Port=8500
-      - ConsulConfig:Client:IP=app-infrastructure-idsServer
+      - ConsulConfig:Client:IP=icxl-ids
       - ConsulConfig:Client:Port=80
     ports:
       - "5000:80"
     networks:
-      morejeenet:
-        ipv4_address: 172.16.0.88
-
+      icxl-work:
+        aliases:
+          - icxl-ids
     depends_on:
-      - app-microservice-basic-api
+      - app-infrastructure-apigateway
     restart: always
 
+
+
+
 networks:
-  morejeenet:
-    ipam:
-      config:
-      - subnet: 172.16.0.0/24
+  icxl-work:
+    driver: overlay
+      
+
+
+ 

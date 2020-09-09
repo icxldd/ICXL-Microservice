@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Leon\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Leon\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_icxl_api.2036322716.00" t="ExcludeRecursive" />
+    <e p="D:\ICXL\icxl_core\icxl_api" t="IncludeFlat">
+      <e p=".env" t="Include" />
+      <e p="basic-infrastructure" t="Include" />
+      <e p="docker-compose.yml" t="Include" />
+      <e p="docker-deploy" t="Include">
+        <e p="build-deploy" t="Include" />
+        <e p="other-deploy" t="Include" />
+        <e p="run-deploy" t="Include" />
+        <e p="update-deploy" t="Include" />
+      </e>
+      <e p="efstudy" t="IncludeRecursive">
+        <e p="AppContext" t="Include">
+          <e p="AppDbContext.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="efstudy.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="Account.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20200820111040_CreateSchoolDB2.cs" t="Include" />
+          <e p="20200820111040_CreateSchoolDB2.Designer.cs" t="Include" />
+          <e p="AppDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="efstudy.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="FactoryTest" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="FactoryTest.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="FactoryTest.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="filedown" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="filedown.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="filedown.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="icxl_api" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ConsulExtension.cs" t="Include" />
+        <e p="Dockerfile" t="Include" />
+        <e p="Dockerfile.original" t="Include" />
+        <e p="Domain" t="Include">
+          <e p="Entities" t="Include">
+            <e p="Account.cs" t="Include" />
+            <e p="Menu.cs" t="Include" />
+          </e>
+          <e p="IRepository" t="Include">
+            <e p="IRepository.cs" t="Include" />
+          </e>
+          <e p="Repository" t="Include">
+            <e p="AccountRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="icxl_api.csproj" t="IncludeRecursive" />
+        <e p="Infrastructure" t="Include">
+          <e p="DataBase" t="Include">
+            <e p="AppContext" t="Include">
+              <e p="AppDbContext.cs" t="Include" />
+            </e>
+            <e p="Migrations" t="Include">
+              <e p="20200820112018_CreateSchoolDB22.cs" t="Include" />
+              <e p="20200820112018_CreateSchoolDB22.Designer.cs" t="Include" />
+              <e p="20200820112450_CreateSchoolDB2223.cs" t="Include" />
+              <e p="20200820112450_CreateSchoolDB2223.Designer.cs" t="Include" />
+              <e p="20200831035413_PaperTest1231.cs" t="Include" />
+              <e p="20200831035413_PaperTest1231.Designer.cs" t="Include" />
+              <e p="AppDbContextModelSnapshot.cs" t="Include" />
+            </e>
+          </e>
+          <e p="StartupInit" t="Include">
+            <e p="Config" t="Include">
+              <e p="AppConfig.cs" t="Include" />
+              <e p="AutoMapperConfigs.cs" t="Include" />
+            </e>
+            <e p="Filter" t="Include">
+              <e p="logActionFilter.cs" t="Include" />
+              <e p="XcActionFilter.cs" t="Include" />
+            </e>
+            <e p="IOC" t="Include">
+              <e p="RegisterRepository.cs" t="Include" />
+            </e>
+            <e p="ServiceCollection" t="Include">
+              <e p="ServiceCollection.cs" t="Include" />
+            </e>
+            <e p="Validation" t="Include">
+              <e p="NoSpaceAttribute.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="icxl_api.AssemblyInfo.cs" t="Include" />
+              <e p="icxl_api.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="AccountController.cs" t="Include" />
+          <e p="EFController.cs" t="Include" />
+          <e p="HealthController.cs" t="Include" />
+          <e p="HomeController.cs" t="Include" />
+          <e p="MenuController.cs" t="Include" />
+          <e p="ValuesController.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="icxl_api.sln" t="IncludeFlat" />
+      <e p="icxl_api_oms" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ConsulExtension.cs" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="HealthController.cs" t="Include" />
+          <e p="ValuesController.cs" t="Include" />
+        </e>
+        <e p="Dockerfile" t="Include" />
+        <e p="Dockerfile.original" t="Include" />
+        <e p="Domain" t="Include" />
+        <e p="icxl_api_oms.csproj" t="IncludeRecursive" />
+        <e p="Infrastructure" t="Include">
+          <e p="BaseDao.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="icxl_api_oms.AssemblyInfo.cs" t="Include" />
+              <e p="icxl_api_oms.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="AppConfig.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="index.html" t="Include" />
+        </e>
+      </e>
+      <e p="icxl_APIGateway" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Dockerfile" t="Include" />
+        <e p="Dockerfile.original" t="Include" />
+        <e p="icxl_APIGateway.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="icxl_APIGateway.AssemblyInfo.cs" t="Include" />
+              <e p="icxl_APIGateway.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ocelot.Development.json" t="Include" />
+        <e p="ocelot.json" t="Include" />
+        <e p="ocelot.Release.json" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="icxl_idsServer" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Config.cs" t="Include" />
+        <e p="ConsulExtension.cs" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="HealthController.cs" t="Include" />
+        </e>
+        <e p="DB.cs" t="Include" />
+        <e p="Dockerfile" t="Include" />
+        <e p="icxl_idsServer.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="icxl_idsServer.AssemblyInfo.cs" t="Include" />
+              <e p="icxl_idsServer.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ProfileService.cs" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="ResourceOwnerPasswordValidator.cs" t="Include" />
+        <e p="Services" t="Include">
+          <e p="AppConfig.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="tempkey.rsa" t="Include" />
+      </e>
+      <e p="Microservice" t="Include" />
+      <e p="observerTest" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="observerTest.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="observerTest.csproj" t="IncludeRecursive" />
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Producer_Consumer" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Producer_Consumer.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Producer_Consumer.csproj" t="IncludeRecursive" />
+        <e p="Program.cs" t="Include" />
+      </e>
+      <e p="run-deploy\.env" t="Include" />
+      <e p="run-deploy\docker-compose.yml" t="Include" />
+      <e p="run-deploy\other-deploy\.env" t="Include" />
+      <e p="run-deploy\other-deploy\docker-compose.yml" t="Include" />
+      <e p="run-deploy\update-deploy\.env" t="Include" />
+      <e p="run-deploy\update-deploy\docker-compose.yml" t="Include" />
+      <e p="Test" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Test.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Test.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="Test-icxl" t="Include" />
+      <e p="yufa" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="yufa.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="yufa.cs" t="Include" />
+        <e p="yufa.csproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

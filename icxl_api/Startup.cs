@@ -73,7 +73,7 @@ namespace icxl_api
             {
                 c.SwaggerDoc("v1", new Info { Title = "MyTestService", Version = "v1" });
             });
-
+            
             return services._AddAutoFac(ApplicationContainer);
         }
 
@@ -104,7 +104,6 @@ namespace icxl_api
 
             app.RegisterConsul(lifetime, appConfig);
             app.UseMvc();
-
 
 
             #region Database Init

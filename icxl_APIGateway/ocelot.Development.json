@@ -29,6 +29,16 @@
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/auto/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "ServiceName": "icxlidsservice",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
     }
   ],
   "GlobalConfiguration": {
