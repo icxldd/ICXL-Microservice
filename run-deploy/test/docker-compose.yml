@@ -144,7 +144,7 @@
     
   # app-infrastructure-apigateway:
     # container_name: app-infrastructure-apigateway-icxl
-    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-apigateway:0910
+    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-apigateway:0910_2
     # ports:
       # - "9503:80"
     # environment:
@@ -160,7 +160,7 @@
     # #idsServer
   # app-infrastructure-idsServer:
     # container_name: app-infrastructure-idsServer-icxl
-    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-ids:0910
+    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-ids:0910_2
     # environment:
       # - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=appbasic;User Id=postgres;Password=root
       # # Consul
@@ -181,7 +181,7 @@
 # # 2.1 basic ms
   # app-microservice-basic-api:
     # container_name: app-microservice-basic-api-icxl
-    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api:0910
+    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api:0910_2
     # environment:
       # - idsUrl:IP=app-infrastructure-idsServer
       # - idsUrl:Port=5000
@@ -205,7 +205,7 @@
 # # 2.2 oms ms
   # app-microservice-oms-api:
     # container_name: app-microservice-oms-api-icxl
-    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api-oms:0910
+    # image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api-oms:0910_2
     # environment:
       # - idsUrl:IP=app-infrastructure-idsServer
       # - idsUrl:Port=5000
@@ -266,7 +266,7 @@ services:
     
   app-infrastructure-apigateway:
     container_name: app-infrastructure-apigateway-icxl
-    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-apigateway:0910
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-apigateway:0910_2
     ports:
       - "9503:80"
     environment:
@@ -282,7 +282,7 @@ services:
     #idsServer
   app-infrastructure-idsServer:
     container_name: app-infrastructure-idsServer-icxl
-    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-ids:0910
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-ids:0910_2
     environment:
       - ConnectionString=Server=app-infrastructure-pgsql;Port=5432;Database=appbasic;User Id=postgres;Password=root
       # Consul
@@ -303,7 +303,7 @@ services:
 # 2.1 basic ms
   app-microservice-basic-api:
     container_name: app-microservice-basic-api-icxl
-    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api:0910
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api:0910_2
     environment:
       - idsUrl:IP=icxl-ids
       - idsUrl:Port=80
@@ -327,7 +327,7 @@ services:
 # 2.2 oms ms
   app-microservice-oms-api:
     container_name: app-microservice-oms-api-icxl
-    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api-oms:0910
+    image: registry.cn-shanghai.aliyuncs.com/icxl-core/icxl-api-oms:0910_2
     environment:
       - idsUrl:IP=icxl-ids
       - idsUrl:Port=80
