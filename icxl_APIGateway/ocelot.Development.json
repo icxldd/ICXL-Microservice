@@ -44,7 +44,7 @@
   "GlobalConfiguration": {
     "dmzconsulservice-ehome": null,
     "ServiceDiscoveryProvider": {
-      "Host": "192.168.99.100",
+      "Host": "192.168.0.104",
       "Port": 8500,
       "Type": "Consul"
     }

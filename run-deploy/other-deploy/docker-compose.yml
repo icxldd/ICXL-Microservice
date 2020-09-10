@@ -18,15 +18,15 @@ services:
       - test
     restart: always
 
- app-infrastructure-consul-test:
-    container_name: app-infrastructure-consul-test
-    image: consul:1.4.4
-    command: agent -dev -client=0.0.0.0 -bind=0.0.0.0
-    ports:
-      - "8500:8500"
-    networks:
-      - test
-    restart: always
+ #app-infrastructure-consul-test:
+ #   container_name: app-infrastructure-consul-test
+ #   image: consul:1.4.4
+ #   command: agent -dev -client=0.0.0.0 -bind=0.0.0.0
+ #   ports:
+ #     - "8500:8500"
+ #   networks:
+ #     - test
+ #   restart: always
 
 
 networks:

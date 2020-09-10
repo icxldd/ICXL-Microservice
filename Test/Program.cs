@@ -15,7 +15,7 @@ namespace Test
 
             //var disco = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest { Address = "http://192.168.0.104:5000", Policy = new DiscoveryPolicy { RequireHttps = false } });
 
-            string url = "http://192.168.0.109:9503/auto/connect/token";
+            string url = "http://192.168.0.102:9703/auto/connect/token";
             var tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
             {
                 //Address = disco.TokenEndpoint,
@@ -38,7 +38,7 @@ namespace Test
             client.SetBearerToken(tokenResponse.AccessToken);
             while (true)
             {
-                var response = await client.GetAsync("http://192.168.0.109:9503/basic/api/Home");
+                var response = await client.GetAsync("http://192.168.0.102:9703/basic/api/Home");
                 if (!response.IsSuccessStatusCode)
                 {
                     Console.WriteLine(response.StatusCode);

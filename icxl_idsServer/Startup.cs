@@ -34,8 +34,8 @@ namespace icxl_idsServer
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
             .AddJsonOptions(opts =>
             {
-                 opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                 opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.Configure<AppConfig>(Configuration);
 
@@ -44,7 +44,7 @@ namespace icxl_idsServer
            .AllowAnyHeader()
            .AllowCredentials()));
 
-            services.AddIdentityServer().AddDeveloperSigningCredential().AddInMemoryIdentityResources(Config.GetIdentityResourceResources())
+            services.AddIdentityServer(x => x.IssuerUri = "icxldd.github.com").AddDeveloperSigningCredential().AddInMemoryIdentityResources(Config.GetIdentityResourceResources())
           .AddInMemoryApiResources(Config.GetApiResources())
           .AddInMemoryClients(Config.GetClients()).AddResourceOwnerValidator<ResourceOwnerPasswordValidator>().AddProfileService<ProfileService>();
         }
