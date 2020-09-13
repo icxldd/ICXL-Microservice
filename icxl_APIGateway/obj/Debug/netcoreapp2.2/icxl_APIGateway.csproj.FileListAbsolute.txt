@@ -12,3 +12,10 @@ D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGatew
 D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.RazorTargetAssemblyInfo.cache
 D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.dll
 D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.pdb
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\appsettings.Development.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\appsettings.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\ocelot.Development.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\ocelot.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\ocelot.Release.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+D:\ICXL\icxl_core\icxl_api\icxl_APIGateway\obj\Debug\netcoreapp2.2\icxl_APIGateway.genruntimeconfig.cache

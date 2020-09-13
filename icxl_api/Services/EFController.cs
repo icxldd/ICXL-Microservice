@@ -46,22 +46,41 @@ namespace icxl_api.Controllers
         //    System.Console.WriteLine("icxlcallback" + datetime.ToString());
         //}
 
-        //[Route("cc")]
-        //public string cc()
-        //{
-        //    _db.Account.Add(new Account()
-        //    {
-        //        Id = "cc" + DateTime.Now.ToString(),
-        //        Name = "2",
-        //        PassWord = "3"
-        //    });
-        //    _db.SaveChanges();
-        //    _capBus.Publish("test.scope.ef.success.a.check", DateTime.Now);
-        //    return JsonConvert.SerializeObject(_db.Account.ToList());
-        //}
+        [Route("~/cc")]
+        public string cc()
+        {
+            using (var tran = _db.Database.BeginTransaction())
+            {
+                _capBus.Publish("test.scope.ef.success.a.check", DateTime.Now);
+                tran.Commit();
+            }
+            return "";
+        }
+        [CapSubscribe("test.scope.ef.success.a.check")]
+        public void CheckTestAReceivedMessage(DateTime datetime)
+        {
+            _db.Account.Add(new Account()
+            {
+                Id = "CheckTestAReceivedMessage" + DateTime.Now.ToString(),
+                Name = "2",
+                PassWord = "3"
+            });
+            _db.SaveChanges();
 
+        }
 
+        [CapSubscribe("ccc")]
+        public void CheckTestAReceivedMessagecc(DateTime datetime)
+        {
+            _db.Account.Add(new Account()
+            {
+                Id = "CheckTestAReceivedMessage" + DateTime.Now.ToString(),
+                Name = "2",
+                PassWord = "3"
+            });
+            _db.SaveChanges();
 
+        }
         //[Route("shiwu")]
         //public string shiwu()
         //{

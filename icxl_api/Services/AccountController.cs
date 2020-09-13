@@ -23,6 +23,7 @@ namespace icxl_api.Services
         [HttpGet]
         public IEnumerable<Account> Get()
         {
+            
             return _db.Account.ToList();
         }
 

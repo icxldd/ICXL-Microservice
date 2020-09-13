@@ -12,3 +12,7 @@ D:\ICXL\icxl_core\icxl_api\icxl_idsServer\obj\Debug\netcoreapp2.2\icxl_idsServer
 D:\ICXL\icxl_core\icxl_api\icxl_idsServer\bin\Debug\netcoreapp2.2\icxl_idsServer.pdb
 D:\ICXL\icxl_core\icxl_api\icxl_idsServer\obj\Debug\netcoreapp2.2\icxl_idsServer.dll
 D:\ICXL\icxl_core\icxl_api\icxl_idsServer\obj\Debug\netcoreapp2.2\icxl_idsServer.pdb
+D:\ICXL\icxl_core\icxl_api\icxl_idsServer\bin\Debug\netcoreapp2.2\appsettings.Development.json
+D:\ICXL\icxl_core\icxl_api\icxl_idsServer\bin\Debug\netcoreapp2.2\appsettings.json
+D:\ICXL\icxl_core\icxl_api\icxl_idsServer\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+D:\ICXL\icxl_core\icxl_api\icxl_idsServer\obj\Debug\netcoreapp2.2\icxl_idsServer.genruntimeconfig.cache
