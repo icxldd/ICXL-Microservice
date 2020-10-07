@@ -14,7 +14,6 @@ namespace icxl_api_oms.Services
         public SMTPSettings SMTPSettings { get; set; }
         public Plugins Plugins { get; set; }
         public ConsulConfig ConsulConfig { get; set; }
-
         public NodeMember idsUrl { get; set; }
     }
 

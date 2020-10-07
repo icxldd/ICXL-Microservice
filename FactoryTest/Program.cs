@@ -16,7 +16,16 @@ namespace FactoryTest
             return null;
         }
     }
+    public abstract class Fruit
+    {
+        public string vendor { get; set; } //默认为private
 
+        public abstract float Price { get; } //抽象属性必须是公有的
+
+        public abstract void GrowInArea();
+       
+
+    }
 
 
 
